@@ -1,0 +1,35 @@
+<!doctype html>
+<html en="zh">
+    <head>
+        <meta charset="utf-8">
+        <title> study of canvas </title>
+        <script type="text/javascript" src="http://beta.shuobaotang.com/js/jquery-v1.8.0.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script>
+            var g_refresh = true;
+            function g_toggle_refresh(){
+                g_refresh = !g_refresh;
+                if(g_refresh) {
+                    $("#g_refresh_btn").text("stop refresh")
+                }else{
+                    $("#g_refresh_btn").text("start refresh")
+                }
+            }
+            window.onload = function(){
+                main();
+                setInterval(function(){
+                    if(g_refresh){
+                        location.reload();
+                    }
+                } , 5000)
+            }
+        </script>
+    </head>
+    <body>
+        <div style="padding-bottom:1em;margin-bottom: 2em; border-bottom: 1px solid red;">
+            <a href="../">back</a>
+            <button id="g_refresh_btn" onclick="g_toggle_refresh()">stop refresh</button>
+        </div>
+        <canvas id="canvas" width="500" height="300"> Your browser does not support HTML5 Canvas.  </canvas>
+    </body>
+</html>
